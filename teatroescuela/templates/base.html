@@ -17,8 +17,8 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/flexslider.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl.carousel.css'%}">
@@ -28,13 +28,13 @@
     <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico'%}">
 
     <!-- Color Scheme -->
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/colors/yellow.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/colors/red.css'%}">
     <!-- <link rel="stylesheet" type="text/css" href="css/colors/blue.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/colors/green.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/colors/black.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="css/colors/yellow.css"> -->
 
-
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
 
 
     <!-- ================== END BASE CSS STYLE ================== -->
@@ -44,55 +44,40 @@
 
 <body>
 
-  <!-- Preloader -->
-  <div id="mask">
-    <div id="loader">
-    </div>
-  </div>
-  <!-- End Preloader -->
-
-  <!-- Home Section -->
-  <section id="home">
-    <div class="container">
-      <div class="hero">
-        <hr>
-        <!-- Home Slider -->
-        <div class="home-slider">
-          <ul class="slides">
-            <li>
-              <h1>We are Floyd</h1>
-            </li>
-            <li>
-              <h1>We are creative</h1>
-            </li>
-            <li>
-              <h1>We are smart</h1>
-            </li>
-          </ul>
-        </div>
-        <!-- End Home Slider -->
-
-
     {% block content %}
     {% endblock %}
 
-    <!-- end page container -->
 
     <!-- ================== BEGIN BASE JS ================== -->
-    <script src="{% static 'assets/js/jquery.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
-    <script src="{% static 'assets/js/wow.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.countTo.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.inview.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.easypiechart.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.fitvids.js' %}"></script>
-    <script src="{% static 'assets/js/scripts.js' %}"></script>
-    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.inview.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.easypiechart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/scripts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/flexslider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.nav.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.appear.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.mixitup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.validation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/respond.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/parallax-bg.js' %}"></script>
+    <script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 
+    <!-- Google Maps JS File -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+    <!-- Main.js File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
     <!-- ================== END BASE JS ================== -->
 
 
