@@ -152,7 +152,7 @@ p {
   height: 500px;
   overflow: hidden;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 #home.pattern {
@@ -1020,7 +1020,7 @@ footer .social-list a:hover .social-icon {
 
   #demo-switcher {
     display: none;
-  }  
+  }
 
 }
 
@@ -1076,4 +1076,3 @@ footer .social-list a:hover .social-icon {
     font-size: 30px;
   }
 }
-
