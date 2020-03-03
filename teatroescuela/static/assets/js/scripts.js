@@ -121,7 +121,7 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     // Progress Bar
     // -------------------------------------------------------------
- 
+
     $('.skill-progress').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
         if (visible) {
             $.each($('div.progress-bar'),function(){
@@ -130,7 +130,7 @@ jQuery(function ($) {
             $(this).unbind('inview');
         }
     });
-    
+
     // -------------------------------------------------------------
     // More skill
     // -------------------------------------------------------------
@@ -233,22 +233,22 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     // Vidio auto play
     // -------------------------------------------------------------
-    (function () {
-    
+    // (function () {
+
     /* Vimeo API: http://developer.vimeo.com/player/js-api */
-    
-        var iframe = document.getElementById('nofocusvideo');
-        // $f == Froogaloop
-        var player = $f(iframe);
 
-        $('.modal').on('hidden.bs.modal', function () {
-        player.api('pause');
-        })
-
-        $('.modal').on('shown.bs.modal', function () {
-        player.api('play');
-        })
-    }());
+    //     var iframe = document.getElementById('nofocusvideo');
+    //     // $f == Froogaloop
+    //     var player = $f(iframe);
+    //
+    //     $('.modal').on('hidden.bs.modal', function () {
+    //     player.api('pause');
+    //     })
+    //
+    //     $('.modal').on('shown.bs.modal', function () {
+    //     player.api('play');
+    //     })
+    // }());
 
 
 
@@ -260,7 +260,7 @@ jQuery(function ($) {
     $(window).load(function() {
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-         
+
         }else {
             $.stellar({
                 horizontalScrolling: false,
@@ -319,8 +319,3 @@ jQuery(function ($) {
     });
 
 });
-
-
-
-
-
