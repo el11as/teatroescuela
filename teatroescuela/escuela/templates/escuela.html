@@ -9,36 +9,9 @@
 <!-- End Preloader -->
 
 <!-- Home Section -->
- <section id="home">
-  <div class="container">
-     <!-- <div>
-            <a href="#home"> <img src="{% static 'assets/images/bg/logo.png' %}" alt="Antagonista" style="height:100px; width:166px;"> </a>
-    </div>  -->
-    <div class="hero">
-      <!-- <hr> -->
-      <!-- Home Slider -->
-       <!-- <div class="home-slider">
-        <ul class="slides">
-          <li>
-            <h1>Teatro Escuela</h1>
-          </li>
-          <li>
-            <h1>Experimentación</h1>
-          </li>
-          <li>
-            <h1>Autoconocimiento</h1>
-          </li>
-          <li>
-            <h1>Autocuidado</h1>
-          </li>
-        </ul>
-      </div>  -->
-      <!-- End Home Slider -->
-      <!-- <hr>
-      <p class="center"><a href="#about" class="btn btn-empty btn-lg">Comenzar</a></p> -->
-    </div>
-  </div>
-</section>
+<div id="home">
+</div>
+
 <!-- End Home Section -->
 
 <!-- Header -->
@@ -596,7 +569,7 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
         <iframe width="320" height="490" src="https://www.instagram.com/p/CByBKyWp5k7/embed" frameborder="0"></iframe>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="padding-top:20px">
       <div class="col-md-4 col-sm-12 col-xs-12">
         <iframe width="320" height="490" src="https://www.instagram.com/p/CAvzmDUpzJM/embed" frameborder="0"></iframe>
       </div>
@@ -975,12 +948,22 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
     <!-- End Copyright -->
   </div>
 </footer>
+
+
 <!-- End Footer -->
 {% endblock content %}
 
 {% block script %}
 <script>
 $(document).ready(function() {
+
+      // $(".cover").backstretch([
+      //   "assets/images/team/5_5.jpg"
+      // ], {
+      //     fade: 'slow',
+      //     duration: 400
+      // });
+
 });
 </script>
 {% endblock %}
