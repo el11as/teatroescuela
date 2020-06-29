@@ -21,6 +21,5 @@ from escuela.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('', TeatroEscuela.as_view(), name='teatro_escuela'),
     url('', include('escuela.urls')),
 ]
