@@ -1,49 +1,54 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import *
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseServerError
+from escuela.models import *
+from utilidades.views import *
 
 # Create your views here.
 
 class TeatroEscuela(TemplateView):
     template_name = 'escuela.html'
 
-def registrar(request):
-    try:
 
-        status = True
-        message = 'Evio de correo'
-        error   = 'Envio de correo exitoso'
+class ResgitroView(View):
 
-        contacto = Contacto()
-        contacto.nombre   = request.POST.get('fullname')
-        contacto.correo   = request.POST.get('email')
-        contacto.telefono = request.POST.get('phone')
-        contacto.mensaje  = request.POST.get('message')
-        contacto.save()
+    def post(self, request, *args, **kwargs):
 
-        enviar_mail(
-            html = True,
-            to_email = ['admision@teatroescuela.cl'],
-            subject = 'Nueva Consulta',
-            message = 'mail/nuevo-admin.html',
-            data = {
-                'nombre'   : request.POST.get('fullname'),
-                'email'    : request.POST.get('email'),
-                'telefono' : request.POST.get('phone'),
-                'mensaje'  : request.POST.get('message'),
+        try:
+            status = True
+            message = 'Evio de correo'
+            error   = 'Envio de correo exitoso'
 
-            },
-        )
+            contacto = Contacto()
+            contacto.nombre   = request.POST.get('a-nombre')
+            contacto.correo   = request.POST.get('a-email')
+            contacto.telefono = request.POST.get('a-phone')
+            contacto.mensaje  = request.POST.get('a-mensaje')
+            contacto.save()
 
-        return JsonResponse({
-            'status'  : status,
-            'message' : message,
-            'error'   : error
-        })
+            enviar_mail(
+                html = True,
+                to_email = ['admision@teatroescuela.cl'],
+                subject = 'Nueva Consulta',
+                message = 'mail/nuevo-admin.html',
+                data = {
+                    'nombre'   : request.POST.get('a-nombre'),
+                    'email'    : request.POST.get('a-email'),
+                    'telefono' : request.POST.get('a-phone'),
+                    'mensaje'  : request.POST.get('a-mensaje'),
+                },
+            )
 
-    except Exception as e:
+            return JsonResponse({
+                'status'  : status,
+                'message' : message,
+                'error'   : error
+            })
 
-        return JsonResponse({
-            'status'  : status,
-            'message' : message,
-            'error'   : str(e)
-        }, status = 500)
+        except Exception as e:
+
+            return JsonResponse({
+                'status'  : status,
+                'message' : message,
+                'error'   : str(e)
+            }, status = 500)

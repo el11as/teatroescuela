@@ -683,7 +683,7 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
         </div>
       </a>
     </li>
-  </ul>
+  </ul> -->
   <!-- End Portfolio Grid -->
   <!-- Ajax Loaded Portfolio -->
   <!-- <div id="project-extended">
@@ -813,12 +813,11 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
 <!-- Clients Section -->
 <section id="clients" class="section">
   <!-- Testimonials -->
-  <div id="testimonials" class="parallax">
+  <!-- <div id="testimonials" class="parallax">
     <div class="parallax-overlay">
       <div class="container">
         <h1>What our clients say</h1>
         <hr>
-        <!-- Testimonials Slider -->
         <div class="testimonials-slider animated hiding" data-animation="fadeInUp">
           <ul class="slides">
             <li>
@@ -838,21 +837,20 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
             </li>
           </ul>
         </div>
-        <!-- End Testimonials Slider -->
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- End Testimonials -->
   <div class="container">
     <!-- Clients Carousel -->
-    <div id="clients-carousel" class="owl-carousel">
+    <!-- <div id="clients-carousel" class="owl-carousel">
       <div class="item"><img src="images/clients/logo1.png" alt=""></div>
       <div class="item"><img src="images/clients/logo2.png" alt=""></div>
       <div class="item"><img src="images/clients/logo3.png" alt=""></div>
       <div class="item"><img src="images/clients/logo4.png" alt=""></div>
       <div class="item"><img src="images/clients/logo5.png" alt=""></div>
       <div class="item"><img src="images/clients/logo6.png" alt=""></div>
-    </div>
+    </div> -->
     <!-- End Clients Carousel -->
   </div>
 </section>
@@ -907,24 +905,33 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
         </div>
         <form id="f-admision" action="{% url 'escuela:registrar' %}" role="form" method="post">
           {% csrf_token %}
-          <div class="col-md-5 col-sm-5 col-xs-12 animated hiding" data-animation="slideInLeft">
-            <div class="form-group">
-              <input type="text" name="fullname" class="form-control input-lg" placeholder="Nombre">
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" class="form-control input-lg" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="text" name="phone" class="form-control input-lg" placeholder="Celular">
-            </div>
-          </div>
-          <div class="col-md-7 col-sm-7 col-xs-12 animated hiding" data-animation="slideInRight">
-            <div class="form-group">
-              <textarea name="message" class="form-control input-lg" placeholder="Mensaje"></textarea>
-            </div>
-          </div>
-          <input type="submit" class="btn btn-custom up animated hiding" value="Send Message" data-animation="fadeInUpBig">
-        </form>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input id="admin-nombre" name="a-nombre" type="text" class="form-control" placeholder="Nombre">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input id="admin-email" name="a-email"  type="mail" class="form-control" placeholder="Email">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="tel" name="a-phone" class="form-control phone" placeholder="(9) 98765432" id="id_telefono">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea type="text" rows="4" cols="30" id="admin-mensaje" name="a-mensaje" class="form-control" placeholder="Mensaje"></textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group pull-right">
+								<!-- <input type="submit" value="Enviar Mensaje" class="btn btn-primary"> -->
+                <input type="submit" class="btn btn-custom up animated fadeInUpBig visible" value="Enviar Mensaje" data-animation="fadeInUpBig">
+							</div>
+						</div>
+				</form>
       </div>
       <!-- End Contact Form -->
     </div>
@@ -974,14 +981,49 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
 {% block script %}
 <script>
 $(document).ready(function() {
-
-      // $(".cover").backstretch([
-      //   "assets/images/team/5_5.jpg"
-      // ], {
-      //     fade: 'slow',
-      //     duration: 400
-      // });
-
+    validar_adminision();
 });
+
+function validar_adminision() {
+  $("#f-admision").validate({
+        'rules': {
+          'a-nombre': {
+              'required': true,
+          },
+          'a-phone': {
+              'required': true,
+          },
+          'a-email': {
+              'required': true,
+              'email': true,
+          },
+					'a-mensaje': {
+							'required': true,
+					},
+        },
+        errorPlacement: function(error, element) {
+            element.closest(".form-group").find('.container-error').html('')
+            error.appendTo(element.closest(".form-group").find('.container-error'));
+        },
+        submitHandler: function(form) {
+            $("#f-admision").ajaxSubmit({
+                dataType: 'json',
+                beforeSend: function() {
+                  loading({
+                      active: true,
+                      description: 'Enviado información.'
+                  })
+                },
+                success: function(response) {
+                  loading({active: false})
+
+                },
+                error: function(data, a, t) {
+                    loading({active: false})
+                }
+            });
+        }
+    });
+}
 </script>
 {% endblock %}
