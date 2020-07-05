@@ -21,6 +21,5 @@ from escuela.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('', include('escuela.urls')),
-    url(r'^aplicado/$', views.aplicado, name='aplicado')
+    url('', include('escuela.urls'))
 ]
