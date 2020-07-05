@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Teatro Escuela</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/flexslider.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl.carousel.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css'%}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/logo_te.ico' %}">
+
+    <!-- Color Scheme -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/colors/blue.css'%}">
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/blue.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/green.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/black.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/colors/yellow.css"> -->
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+
+
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+{% block style %}
+{% endblock %}
+
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.inview.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.easypiechart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/scripts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/flexslider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.nav.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.appear.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.countTo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.mixitup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'assets/js/jquery.validation.min.js' %}"></script> -->
+    <script type="text/javascript" src="{% static 'assets/js/respond.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/parallax-bg.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/plugins/jquery-validation/jquery.validate.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/plugins/jquery-form/jquery-form.js' %}"></script>
+    <!-- <script type="text/javascript" src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script> -->
+
+    <!-- Google Maps JS File -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+    <!-- Main.js File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/escuela.js' %}"></script>
+    <!-- ================== END BASE JS ================== -->
+
+
+    {% block script %}
+    {% endblock %}
+
+    <!-- plugins -->
+
+</body>
+
+</html>
