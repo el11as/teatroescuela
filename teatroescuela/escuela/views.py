@@ -52,3 +52,7 @@ class ResgitroView(View):
                 'message' : message,
                 'error'   : str(e)
             }, status = 500)
+
+def aplicado(request):
+    context = {}
+    return render(request, 'teatroaplicado.html', context)
