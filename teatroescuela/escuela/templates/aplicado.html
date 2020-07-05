@@ -1,336 +1,598 @@
-<!DOCTYPE HTML>
-{% load staticfiles %}
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Escuela | Antagonista</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+{% extends 'index-app.html' %}
+{% load static %}
+{% block content %}
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-
-	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
-
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!-- MENU -->
 
 
-	<!-- Modernizr JS -->
-	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="{% static 'js/respond.min.js' %}"></script>
-	<![endif]-->
+<!--Modal: Name-->
+<div class="modal fade" id="m-admision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header form-title-modal">
+				<span>MÁS INFORMACIÓN AQUÍ</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="f-malla" action="" role="form" method="post">
+          <div class="form-group">
+						<label for="recipient-nombe" class="col-form-label">Nombre:</label>
+						<input name='m-nombre' type="text" class="form-control" id="m-name">
+            <label for="recipient-email" class="col-form-label">Email:</label>
+						<input name='m-email' type="text" class="form-control" id="m-email">
+						<label for="recipient-telefono" class="col-form-label">Teléfono:</label>
+            <input name='m-fono' type="text" class="form-control" id="m-fono">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick='enviar_malla()' class="btn btn-primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal: Name-->
 
-	</head>
 
-	<body>
 
-	<!-- <nav id="colorlib-main-nav" role="navigation">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
-		<div class="js-fullheight colorlib-table">
-			<div class="colorlib-table-cell js-fullheight">
-				<ul>
-					<li><a href="{% url 'web:inicio' %}" style="height: 120px">INICIO</a></li>
-					<li><a href="{% url 'web:obras' %}" style="height: 120px">OBRAS</a></li>
-                    <li>
-                        <a href="{% url 'web:escuela' %}" style="height: 120px">ESCUELA</a>
-                    </li>
-					<li><a href="{% url 'web:compania' %}"   style="height: 120px">COMPAÑIA</a></li>
-					<li><a href="{% url 'web:contacto' %}" style="height: 120px">CONTACTO</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav> -->
-
-	<div id="colorlib-page">
-		<header>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="colorlib-navbar-brand">
-							<!-- <a class="colorlib-logo" href="{% url 'web:inicio' %}">Antagonista</a> -->
-						</div>
-						<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+<div id="colorlib-page" class="a-admin modalidades" >
+	<header>
+		<div class="container" style="padding: 0 2.66667em">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="colorlib-navbar-brand">
+						<a href=""> <img src="{% static 'images/logo.png' %}" alt="Antagonista" style="height:100px; width:166px"> </a>
 					</div>
-				</div>
-			</div>
-		</header>
-		<aside id="colorlib-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<li style="background-image: url('/static/images/escuela.jpg');">
-			   		<div class="overlay"></div>
-			   		<div class="container">
-			   			<div class="row">
-				   			<div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2 text-center slider-text">
-				   				<div class="slider-text-inner">
-				   					<h2>What I do</h2>
-				   					<h1>Our Services</h1>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			  	</ul>
-		  	</div>
-		</aside>
-		<div id="colorlib-services">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box intro-heading">
-						<h2>What I do</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 animate-box">
-						<div class="services">
-							<span class="icon"><i class="icon-pen3"></i></span>
-							<div class="desc">
-								<h3>Web Design</h3>
-								<p>Separated they live in Bookmarksgrove right at the coast</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-							<span class="icon"><i class="icon-diamond"></i></span>
-							<div class="desc">
-								<h3>Web Development</h3>
-								<p>Separated they live in Bookmarksgrove right at the coast</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-							<span class="icon"><i class="icon-paperplane"></i></span>
-							<div class="desc">
-								<h3>Help &amp; Support</h3>
-								<p>Separated they live in Bookmarksgrove right at the coast</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 animate-box">
-						<div class="services">
-							<span class="icon"><i class="icon-params"></i></span>
-							<div class="desc">
-								<h3>Marketing</h3>
-								<p>Separated they live in Bookmarksgrove right at the coast</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-							<span class="icon"><i class="icon-photo"></i></span>
-							<div class="desc">
-								<h3>Digital Marketing</h3>
-								<p>Separated they live in Bookmarksgrove right at the coast</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="services">
-							<span class="icon"><i class="icon-bulb"></i></span>
-							<div class="desc">
-								<h3>Web Strategy</h3>
-								<p>Separated they live in Bookmarksgrove right at the coast</p>
-							</div>
-						</div>
-					</div>
+					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 				</div>
 			</div>
 		</div>
-
-		<div id="colorlib-counter" class="colorlib-counters">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box intro-heading">
-						<h2>Fun Facts</h2>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-					</div>
-				</div>
-				<div class="row animate-box">
-					<div class="col-md-10 col-md-offset-1">
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="span-admin banner" style="background-image: url('/static/images/cover_adm_1.jpg');background-position: center;width: 100%">
+				<div style="background-color: rgba(0, 0, 0, 0.40);width: 100%;margin: 0px !important;padding: 60px 0;">
+					<div class="span-admin boxer" style="" data-widget-type="cell" data-x="0" data-w="12">
 						<div class="row">
-							<div class="col-md-4 text-center">
-								<span class="colorlib-counter js-counter" data-from="0" data-to="456" data-speed="5000" data-refresh-interval="50"></span>
-								<span class="colorlib-counter-label">Coffee</span>
-							</div>
-							<div class="col-md-4 text-center">
-								<span class="colorlib-counter js-counter" data-from="0" data-to="899" data-speed="5000" data-refresh-interval="50"></span>
-								<span class="colorlib-counter-label">Done Projects</span>
-							</div>
-							<div class="col-md-4 text-center">
-								<span class="colorlib-counter js-counter" data-from="0" data-to="2000" data-speed="5000" data-refresh-interval="50"></span>
-								<span class="colorlib-counter-label">Subscribers</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="colorlib-testimony" class="colorlib-light-grey">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box intro-heading">
-						<h2>Our Client Says:</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="row animate-box">
-							<div class="owl-carousel1">
-								<div class="item">
-									<div class="testimony-slide text-center active">
-										<figure>
-											<img src="images/person1.jpg" alt="user">
-										</figure>
-										<blockquote>
-											<p><i class="icon-quotes-left"></i> Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-											<span>Andrew Field, Blogger</span>
-										</blockquote>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide text-center active">
-										<figure>
-											<img src="images/person2.jpg" alt="user">
-										</figure>
-										<blockquote>
-											<p><i class="icon-quotes-left"></i> Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-											<span>Mark Bubble, Web Designer</span>
-										</blockquote>
-									</div>
-								</div>
-								<div class="item">
-									<div class="testimony-slide text-center active">
-										<figure>
-											<img src="images/person3.jpg" alt="user">
-										</figure>
-										<blockquote>
-											<p><i class="icon-quotes-left"></i> Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-											<span>Adam Smith, Guest</span>
-										</blockquote>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="colorlib-hire" class="colorlib-light-grey">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box">
-						<h2 class="heading">Are you looking for a web designer?</h2>
-						<p><a href="#" class="btn btn-primary btn-lg">Available for Hire!</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<footer>
-			<div id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 col-pb-sm">
-							<div class="row">
-								<div class="col-md-10">
-									<h2>Suitcase</h2>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-									<div class="row">
-										<div class="col-md-6">
-											<p>From the countries Vokalia and Consonantia</p>
-										</div>
-										<div class="col-md-6">
-											<p>Far far away, behind the word mountains</p>
+							<div class="col-md-12">
+								<div class="span-admin widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+									<div class="span-admin">
+									  <!-- <img class="logo-modalidades" src="{% static 'images/logo.png' %}" alt="" width="190" style="width: 190px;"> -->
+										<div class="span-admin" style="margin-left: 50px;margin-top: 129px;">
+									    <div class="tit-carrera">
+									      <h1><span> Actuación Teatral </span></h1>
+									    </div>
+								  	</div>
+										<div style="margin-left:50px;margin-top: 20px">
+											<button id="btn-admision" onclick="descargar_malla()" class="btn-malla">DESCARGAR MALLA</button>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 col-pb-sm">
-							<h2>Newsletter</h2>
-							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia</p>
-							<div class="subscribe text-center">
-								<div class="form-group">
-									<input type="text" class="form-control text-center" placeholder="Enter Email address">
-									<input type="submit" value="Subscribe" class="btn btn-primary btn-custom">
+					</div>
+	  		</div>
+			</div>
+		</div>
+
+		<!-- Nuestra Escuela -->
+		<section id="d-ESCUELA" class="contact-section section-padding mb-30 mt-30">
+		  <div class="container">
+		    <div class="row text-center animate-box">
+					<div class="col-md-7 animate-box">
+						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;text-align:left;">NUESTRA ESCUELA</h5>
+						<p style="margin-bottom: 24px;font-family: Courier,monospace; text-align: justify;font-size: 16px">
+							El Teatro Escuela, es una institución de Estudios Superiores, enfocada en la formación de Actrices y Actores de nivel profesional.<br>
+							La escuela, define su preocupación por una formación teatral íntegra, mediante un proceso en el cual el alumno concreta la integración
+							de sus facultades crearivas, como un ser capaz de establecer relaciones con el entorno en el que le corresponde desempeñarse, vinculándose en
+							el medio teatral desde el primer año de ingreso.<br>
+							En la metodología del Teatro Escuela, el estudiante es el factor activo de su propia creación, especialmente en las asignaturas troncales:
+							Actuación, Movimiento y Voz, con un sello marcado en lo práctico.<br>
+							La Malla Curricular de la Escuela, establece un plan común de tres años y un línea de formación específica en el primer semestre del cuarto
+							año, en la cual el estudiante podrá optar por la mención de Interpretación o de Realización Escénica. Ambas menciones, se interelacionan en
+							la preparación de su egreso respectivo, al final de la carrera.La malla, establece un sistema de créditos que aseguran que el estudiante se
+							forme de acuerdo a las exigencias del medio teatral profesional.
+						</p>
+					</div>
+					<div class="col-md-offset-1 col-md-3 animate-box formulario">
+						<div class="row">
+							<h3 id="t-admision" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text">MÁS INFORMACIÓN AQUÍ</h3>
+							<form id="f-admision" action="" role="form" method="post">
+								<div class="col-md-12">
+									<div class="form-group">
+										<input id="admin-nombre" name="a-nombre" type="text" class="form-control" placeholder="Nombre">
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-pb-sm right-display">
-							<h2>Follow Us</h2>
-							<p class="colorlib-social-icons colorlib-social-icons2">
-								<a href="#"><i class="icon-facebook4"></i></a>
-								<a href="#"><i class="icon-twitter3"></i></a>
-								<a href="#"><i class="icon-googleplus"></i></a>
-								<a href="#"><i class="icon-dribbble2"></i></a>
-							</p>
-							<p>
-								<span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br></span>
-								<span class="block">Demo Images: <a href="http://nothingtochance.co/" target="_blank">nothingtochance.co</a> <a href="http://unsplash.co/" target="_blank">Unsplash</a></span>
-							</p>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input id="admin-apellod" name="a-apellido" type="text" class="form-control" placeholder="Apellido">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input id="admin-email" name="a-email"  type="mail" class="form-control" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input id="admin-telefono" name="a-telefono"  type="telefono" class="form-control" placeholder="+56 9 66735123">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<input id="admin-run" name="a-run"  type="run" class="form-control formato-rut" placeholder="xx.xxx.xxx-x">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<select name="a-modalidad" class="form-control">
+												<option>Diurno</option>
+												<option>Vespertino</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<textarea type="text" rows="4" cols="30" id="admin-mensaje" name="a-mensaje" class="form-control" placeholder="Mensaje"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group pull-right">
+										<input type="submit" value="Enviar Mensaje" class="btn btn-primary">
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
-				</div>
-			</div>
-		</footer>
+		  	</div>
+		  </div>
+		</section>
 
+		<!-- Razones y Beneficios -->
+		<section id="r-escuela" class="contact-section section-padding mb-30">
+		  <div class="container">
+		    <div class="row justify-content-md-center row animate-box">
+					<div class="col-md-4 animate-box">
+						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;line-height: 1.16667em; margin-bottom: .66667em;">CAMPO OCUPACIONAL</h5>
+						<ul class="listaprodserv">
+							<li class="listaprodserv">Actuación para teatro.</li>
+							<li class="listaprodserv">Realización Escénica.</li>
+							<li class="listaprodserv">Especialidades teatrales: dirección, producción, diseño escénico, dramaturgia, danza.</li>
+							<li class="listaprodserv">Gestión y producción cultural.</li>
+							<li class="listaprodserv">Docencia e investigación.</li>
+						</ul>
+					</div>
+					<div class="col-md-4 animate-box">
+						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;line-height: 1.16667em; margin-bottom: .66667em;">¿POR QUÉ TEATRO ESCUELA?</h5>
+						<ul class="listaprodserv">
+							<li class="listaprodserv">Carrera con un marcado sello en la puesta en escena.</li>
+							<li class="listaprodserv">Modelo de Enseñanza que amplía las posibilidades laborales.</li>
+							<li class="listaprodserv">Cuerpo docente idóneo y con actividad vigente en el medio.</li>
+							<li class="listaprodserv">Sede privilegiada en barrio Brasil.</li>
+							<li class="listaprodserv">Biblioteca y Videoteca especializada.</li>
+							<li class="listaprodserv">Convenio con Fonoadiólogos.</li>
+						</ul>
+					</div>
+					<div class="col-md-4 animate-box">
+						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;line-height: 1.16667em; margin-bottom: .66667em;">REQUISITOS</h5>
+						<ul class="listaprodserv">
+							<li class="listaprodserv">Postulantes chilenos y extranjeros deben presentar su licencia de enseñanza media chilena original o legalizada ante notario.</li>
+							<li class="listaprodserv">Presentar fotocopia clara y legible de ambas caras de la cédula de identidad.</li>
+							<li class="listaprodserv">Cumplir con los demás requisitos que para el ingreso establezca el Teatro Escuela</li>
+						</ul>
+					</div>
+		  	</div>
+
+		  </div>
+		</section>
+
+		<!-- Contacto -->
+		<section id="c-escuela" class="contact-section section-padding mb-30">
+		  <div class="container">
+		    <div class="row text-center  animate-box">
+					<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;text-align:center;">CONTACTO</h5>
+		      <div class="col-sm-6 col-md-4 mb-4 animated" data-animate="ts-fadeInUp" style="visibility: visible;">
+		          <i class="icon-map5"></i>
+		          <div>
+		              <figure class="mb-0">Agustinas 1817 Barrio Brasil</figure>
+		              <figure>Santiago</figure>
+		          </div>
+
+		      </div>
+		      <div class="col-sm-6 col-md-2 mb-4 ts-fadeInUp animated" data-animate="ts-fadeInUp" data-delay=".1s" style="animation-delay: 0.1s; visibility: visible;">
+		          <i class="icon-phone4"></i>
+		          <div class="ts-opacity__50">
+		              <figure class="mb-0">+56974324328</figure>
+		          </div>
+		      </div>
+		      <div class="col-sm-6 col-md-3 mb-4 ts-fadeInUp animated" data-animate="ts-fadeInUp" data-delay=".2s" style="animation-delay: 0.2s; visibility: visible;">
+		          <i class="icon-envelope2"></i>
+		          <div class="ts-opacity__50">
+		              <figure class="mb-0">admision@teatroescuela.cl</figure>
+		          </div>
+		      </div>
+		      <div class="col-sm-6 col-md-3 mb-4 ts-fadeInUp animated" data-animate="ts-fadeInUp" data-delay=".3s" style="animation-delay: 0.3s; visibility: visible;">
+		          <i class="icon-globe3"></i>
+		          <div class="ts-opacity__50">
+		              <figure><a href="/">www.teatrodelantagonista.cl</a></figure>
+		          </div>
+		      </div>
+		  	</div>
+		  </div>
+		</section>
 	</div>
+</div>
 
-	<!-- jQuery -->
-	<script src="{% static 'js/jquery.min.js' %}"></script>
-	<!-- jQuery Easing -->
-	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
-	<!-- Bootstrap -->
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<!-- Waypoints -->
-	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-	<!-- Flexslider -->
-	<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
-	<!-- Counters -->
-	<script src="{% static 'js/jquery.countTo.js' %}"></script>
-	<!-- Owl Carousel -->
-	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
 
-	<!-- Main JS (Do not remove) -->
-	<script src="{% static 'js/main.js' %}"></script>
+<style>
 
-	</body>
-</html>
+	/* #colorlib-contact {
+	    padding: 55px 0 !important;
+	} */
+
+  .mb-30 {
+		margin-bottom: 50px;
+	}
+
+	.mt-30 {
+		margin-top: 50px;
+	}
+
+	figure {
+    margin: 0;
+    font-size: 14px;
+	}
+
+	.section-title-contacto {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 50px;
+    line-height: 50px;
+    color: #2c3e50;
+    position: relative;
+	}
+
+	.listaprodserv ul{margin:0; padding:0}
+
+	.listaprodserv li{
+
+		list-style: disc;
+		font-family:Courier,monospace;
+		font-size:14px;
+		color:#504f4f;
+		list-style-position:inside;
+		line-height:20px;
+		margin-left:10px;}
+
+	.listaprodserv li a{
+		color:#504f4f;
+		list-style-position:inside;
+		line-height:20px;
+		text-decoration:none;}
+
+	.listaprodserv li a:hover{
+		color:#797979;
+		text-decoration:underline;}
+
+		.formulario {
+	    box-shadow: 0px 0px 15px #8888886b;
+		}
+
+	.form-title {
+    text-align: center;
+    font-size: 28px;
+    background: #ff036b;
+    color: #fff;
+    padding: 15px 0;
+	}
+
+	.form-title-modal {
+		text-align: center;
+		font-size: 28px;
+		background: #ff036b;
+	}
+
+	.form-title-modal span{
+		text-align: center;
+		font-size: 26px;
+		color: #ffffff;
+	}
+
+	.col-form-label{
+		font-size: 16px;
+		font-weight: 100 !important;
+	}
+
+  .container {
+      position: relative;
+      width: 100%;
+      clear: both;
+      margin-right: 0;
+      margin-left: 0;
+  }
+
+
+	.btn-malla {
+  	color: #fff;
+  	border-radius: 25px;
+  	border: 0px;
+  	text-transform: uppercase;
+  	font-size: 12px;
+    background: #ff036b;
+  	float: left;
+    padding: 7px 25px;
+    margin-right: 10px;
+    margin-bottom: 15PX;
+    cursor: pointer;
+	}
+
+	.modalidades .boxer {
+  	width: 100%;
+	}
+
+	.a-admin h1 {
+    line-height: 42px !important;
+    margin: 0 !important;
+    margin-bottom: 50px !important;
+	}
+
+	.tit-carrera h1 span {
+    background-color: #ff036b;
+    padding: 0px 0px 5px;
+    text-transform: uppercase;
+		font-size: 42px !important;
+		color: #fff !important;
+		font-weight: 600 !important;
+	}
+
+	.banner {
+	  padding: 0px 0;
+	  background-size: cover !important;
+	  background-position: center;
+	}
+
+	.item-agenda a span {
+      border-bottom: 1px solid #242d27;
+      font-size: 15px;
+  }
+
+  .item-agenda .title {
+      display: inline !important;
+      font-size: 15px;
+      line-height: 1.25em;
+      text-transform: uppercase;
+  }
+  agenda p {
+      display: inline;
+  }
+
+  .big-title, .cta, .dancer-nav span, .filters a, .filters button, .filters u, .hero text, .section-title, .super-title, .text h4, .text h5, .title {
+      font-weight: 400;
+      font-family: Impact;
+  }
+
+  .text h44{
+    font-weight: 400;
+    font-family: Impact;
+    margin: 0px 0px 5px 0px
+  }
+
+  .item-agenda p {
+      display: inline;
+      font-size: 15px;
+      line-height: 1.42857em;
+  }
+
+  .item-agenda .datetime, .item-agenda p {
+       display: inline;
+  }
+
+  .item-agenda .datetime {
+      display: inline;
+      font-weight: 700;
+      font-size:13px;
+      line-height: 1.25em;
+  }
+
+  .text p {
+      font-size: 14px;
+      line-height: 17px;
+      padding-bottom: 23px;
+  }
+
+
+  @media (min-width: 48em)
+  .containerobra {
+      padding: 0 2.66667em;
+  }
+
+  .containerobra {
+      position: relative;
+      width: 100%;
+      max-width: 1885px;
+      padding: 0 1.33333em;
+      clear: both;
+  }
+  .list li {
+      margin-bottom: 1.33333em;
+      text-transform: uppercase;
+  }
+  .big-title, .cta, .dancer-nav span, .filters a, .filters button, .filters u, .hero text, .section-title, .super-title, .text h4, .text h5, .title {
+      font-weight: 400;
+      font-family: Impact;
+
+  }
+  .big-title span {
+      padding-right: .16667em;
+      font-size: 1.9em;
+      line-height: 1.14286em;
+      font-family: Impact;
+      color :  #242d27
+
+  }
+
+  .big-title sup {
+      font-family: Courier,monospace;
+      <!--font-size: 1.16667em;-->
+      line-height: 1.14286em;
+      vertical-align: top;
+      top: auto;
+  }
+  p, ul {
+      margin: 0;
+  }
+
+  ul {
+      list-style: none;
+      padding: 0;
+  }
+  h3{
+      font-weight: 100;
+      font-size: 1em;
+  }
+  .list a {
+      opacity: 1;
+      transition: opacity .2s linear;
+  }
+  a, a:active, a:hover, a:visited {
+      color: inherit;
+  }
+  a {
+      text-decoration: none;
+  }
+  a:hover, a.span:hover   {color: gray;    text-decoration: none;
+  }
+
+</style>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+	$(document).ready(function() {
+		validar_adminision();
+		valida_malla();
+
+		$(".formato-rut").rut({
+				formatOn: 'keyup'
+		})
+
+	});
+
+	function descargar_malla(){
+		$('#m-admision').modal('show')
+	}
+
+	function enviar_malla(){
+		$('#f-malla').submit();
+	}
+
+	function validar_adminision() {
+    $("#f-admision").validate({
+        'rules': {
+          'a-nombre': {
+              'required': true,
+          },
+          'a-apellido': {
+              'required': true,
+          },
+          'a-email': {
+              'required': true,
+              'email': true,
+          },
+					'a-run': {
+							'required': true,
+							'rut': true,
+					},
+					'a-telefono':{
+							'required': true,
+
+					},
+					'a-mensaje':{
+							'required': true,
+
+					}
+        },
+        errorPlacement: function(error, element) {
+            console.log('errorPlacement')
+            element.closest(".form-group").find('.container-error').html('')
+            error.appendTo(element.closest(".form-group").find('.container-error'));
+        },
+        submitHandler: function(form) {
+
+            $("#f-admision").ajaxSubmit({
+                dataType: 'json',
+                beforeSend: function() {
+									$('#m-admision').modal('hide')
+                  loading({
+                      active: true,
+                      description: 'Enviado información.'
+                  })
+                },
+                success: function(response) {
+                  loading({active: false})
+
+                },
+                error: function(data, a, t) {
+                    loading({active: false})
+                    // notification_toastr({
+                    //     title: 'Empresa',
+                    //     message: 'Ocurrio un error, contactarse con el administrador',
+                    //     type: 'error'
+                    // })
+                }
+            });
+        }
+    });
+	}
+
+	function valida_malla(){
+		$("#f-malla").validate({
+        'rules': {
+          'm-email': {
+              'required': true,
+              'email': true,
+          },
+        },
+        errorPlacement: function(error, element) {
+            console.log('errorPlacement')
+            element.closest(".form-group").find('.container-error').html('')
+            error.appendTo(element.closest(".form-group").find('.container-error'));
+        },
+        submitHandler: function(form) {
+
+            $("#f-malla").ajaxSubmit({
+                dataType: 'json',
+                beforeSend: function() {
+										$('#m-admision').modal('hide')
+                    loading({
+                        active: true,
+                        description: 'Enviando información.'
+                    })
+                },
+                success: function(response) {
+                  loading({active: false})
+
+                },
+                error: function(data, a, t) {
+                    loading({active: false})
+                    // notification_toastr({
+                    //     title: 'Empresa',
+                    //     message: 'Ocurrio un error, contactarse con el administrador',
+                    //     type: 'error'
+                    // })
+                }
+            });
+        }
+    });
+	}
+
+</script>
+
+
+
+{% endblock %}
