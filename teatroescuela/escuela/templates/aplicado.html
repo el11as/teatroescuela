@@ -1,533 +1,1016 @@
-{% extends 'index-app.html' %}
-{% load static %}
+{% extends 'base.html' %}
 {% block content %}
+{% load static %}
+<!-- Preloader -->
+<div id="mask">
+  <div id="loader">
+  </div>
+</div>
+<!-- End Preloader -->
 
-<!-- MENU -->
+<!-- Home Section -->
+<div id="home">
+</div>
 
+<!-- End Home Section -->
 
-<!--Modal: Name-->
-<div class="modal fade" id="m-admision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header form-title-modal">
-				<span>MÁS INFORMACIÓN AQUÍ</span>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="f-malla" action="" role="form" method="post">
-          <div class="form-group">
-						<label for="recipient-nombe" class="col-form-label">Nombre:</label>
-						<input name='m-nombre' type="text" class="form-control" id="m-name">
-            <label for="recipient-email" class="col-form-label">Email:</label>
-						<input name='m-email' type="text" class="form-control" id="m-email">
-						<label for="recipient-telefono" class="col-form-label">Teléfono:</label>
-            <input name='m-fono' type="text" class="form-control" id="m-fono">
+<!-- Header -->
+<header class="navbar navbar-default topnav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#home" id="logo"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="nav navbar-nav navbar-right" id="nav">
+        <li class="active"><a href="#home">Inicio</a></li>
+        <li><a href="#about">Nosotres</a></li>
+        <li><a href="#team">Facilitadores</a></li>
+        <li><a href="#services">Formación</a></li>
+        <li><a href="#portfolio">Portafolio</a></li>
+        <!-- <li><a href="#pricing">Pricing</a></li> -->
+        <li><a href="#contact">Contacto</a></li>
+        <li><a href="">MiTE</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<!-- End Header -->
+
+<!-- About Section -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="title col-md-8 col-sm-10 col-xs-12">
+      <h1>Nosotr<strong>es</strong></h1>
+      <hr>
+    </div>
+    <!-- About Text -->
+    <p class="about-text">Teatro Escuela, es un centro de investigación y formación escénica basado en el autoconocimiento, el ritmo y el flujo, para explorar nuevas metodologías en la educación artística.</p>
+    <!-- About Text -->
+    <div class="promo-line">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+          <div class="promo right animated hiding" data-animation="fadeInLeft">
+            <div class="col-md-2 col-sm-3 promo-icon-box">
+              <div class="promo-icon">
+                <i class="fa fa-user fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h4>Quiénes Somos?</h4>
+              <p align="justify">Somos un grupo multidisciplinario de personas ligadas al ambiente artístico, que impulsamos
+iniciativas que fomenten la creación y difusión de proyectos artísticos, principalmente asociados al
+ámbito teatral.<br>
+Ante la necesidad de aportar en la difusión de la cultura y de la reestructuración de las prácticas
+artísticas que existen en el país, consideramos necesario generar una institución que
+impulse la formación y desarrollo de artistas con la capacidad tanto de interpretar como de crear
+sus propios proyectos. Es por esto, que el año 2019 se funda Teatro Escuela.</p>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" onclick='enviar_malla()' class="btn btn-primary">Enviar</button>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+          <div class="promo animated hiding" data-animation="fadeInRight">
+            <div class="col-md-2 col-sm-3 promo-icon-box">
+              <div class="promo-icon">
+                <i class="fa fa-bullseye fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h4>Nuestra misión</h4>
+              <p align="justify">El Teatro Escuela, tiene como misión la formación de creadores a través de una experiencia educativa que estimule en ellas
+              un comportamiento empático, sensible, crítico, subversivo y diverso, por tanto consciente consigo misme y con su entorno.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="promo-line">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+          <div class="promo right animated hiding" data-animation="fadeInLeft">
+            <div class="col-md-2 col-sm-3 promo-icon-box">
+              <div class="promo-icon">
+                <i class="fa fa-gears fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h4>Formación</h4>
+              <p align="justify">Se desarrolla desde una visión contemporánea y actualizada, en dónde se integran conocimientos profundos en
+                relación a las técnicas de interpretación escénica con prácticas, que se centran en el estudiante como eje creativo y
+                que se desmarcan de la tradición conductista que rige la enseñanza teatral en Chile, que contribuyan a la comunidad considerando
+                el contexto nacional y mundial en el que vivimos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+          <div class="promo animated hiding" data-animation="fadeInRight">
+            <div class="col-md-2 col-sm-3 promo-icon-box">
+              <div class="promo-icon">
+                <i class="fa fa-heart fa-2x"></i>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h4>Dirigido</h4>
+              <p align="justify">A todas las personas que sientan una necesidad de desarrollar sus habilidades creativas y
+              sensibles para desplegarse con un lenguaje propio aplicable a experiencias escénicas personales y colectivas.<br>
+              Quienes busquen una formación experimental, alternativa y de calidad para incrementar sus competencias y desarrollo interno.<br>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!--Modal: Name-->
+</section>
+<!-- End About Section -->
+
+<!-- Team Section -->
+<section id="team" class="section">
+  <div class="container">
+    <div class="title col-md-8 col-sm-10 col-xs-12">
+      <h1>Equipo <strong>Facilitador</strong></h1>
+      <hr>
+      <p>El cuerpo docente de Teatro Escuela está conformado por:</p>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="0">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/1_1.jpg' %}" alt="">
+          <div class="team-overlay">
+            <p align="justify">Destacada actriz chilena de teatro, cine y televisión egresada de la Pontifica Universidad Católica.
+Es académica, dirigente sindical y política. Actualmente directora artística de Teatro Camilo Henríquez.</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Paulina Urrutia</h3>
+          <p>Práctica Actuación</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/8_8.png' %}" alt="">
+          <div class="team-overlay">
+            <p>Es Actor y Licenciado en Estética de la PUC. Ha sido docente en el Departamento de Artes Liberales de la UAI
+              y ayudante en el área de Investigación Teórica y Estudios Teatrales de la Escuela de Teatro UC.</p>
+
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Camilo Navarro</h3>
+          <p>Estética y Apreciación</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="1000">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/3_3.jpg' %}"  alt="">
+          <div class="team-overlay">
+            <p>Actriz egresada de la Universidad de Chile. Ha participado en más de 55 montajes teatrales.
+              Es profesora de técnica vocal y estudio de la palabra en escena. Es co-fundadora de la agrupación Lágrimas, Celos y Dudas.</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Marcela Salinas</h3>
+          <p>Práctica Vocal</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/4_4.jpg' %}" alt="">
+          <div class="team-overlay">
+            <p>Actriz de la Universidad ARCIS. Ha trabajado con múltiples directores/as.
+            Ganadora de “Mejor Obra Literaria” de dramaturgia con "Yo también quiero ser un hombre blanco heterosexual".</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Carla Zúñiga</h3>
+          <p>Dramaturgia</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/5_5.jpg' %}" alt="">
+          <div class="team-overlay">
+            <p>Actriz, directora, dramaturga y profesora de actuación. Ha escrito, dirigido y actuado sus obras La Reunión, Pájaro y Carnaval (su más
+reciente proyecto). En 2007 ganó el premio Altazor como mejor actriz.</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Trinidad González</h3>
+          <p>Práctica Actuación</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/6_6.jpg' %}" alt="">
+          <div class="team-overlay">
+            <p>Licenciado en Artes escénicas de la Universidad Mayor. Actualmente se encuentra trabajando en el Diseño
+Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Gonzalo Hurtado</h3>
+          <p>Música Electrónica</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="500">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/2_2.jpg' %}" alt="">
+          <div class="team-overlay">
+            <p>Artista de la Danza, titulada en Laban Centre de Londres, Universidad de Chile.
+              Actualmente es académica del Departamento de Danza de la Facultad de Artes de la Universidad de Chile.</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Macarena Campbell</h3>
+          <p>Práctica Movimiento</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="team animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <div class="team-photo">
+          <img src="{% static 'assets/images/team/7_7.jpg' %}" alt="">
+          <div class="team-overlay">
+            <p>Es actor del Teatro La Casa, diplomado en Estética y Filosofía de la UC. Realizó estudios de coreografía con Milán Kozaneck.
+              El 2018 estrenó “Yo también quiero ser un hombre blanco heterosexual”.</p>
+            <!-- <ul class="social-list">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <span class="social-icon facebook">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <span class="social-icon twitter">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                  <span class="social-icon google-plus">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                </a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+        <div class="team-inner">
+          <h3>Manuel Morgado</h3>
+          <p>Director</p>
+        </div>
+      </div>
+    </div>
 
 
+  </div>
+</section>
+<!-- End Team Section -->
 
-<div id="colorlib-page" class="a-admin modalidades" >
-	<header>
-		<div class="container" style="padding: 0 2.66667em">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="colorlib-navbar-brand">
-						<a href=""> <img src="{% static 'assets/images/logo.png' %}" alt="Antagonista" style="height:100px; width:166px"> </a>
-					</div>
-					<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div class="container">
-		<div class="row">
-			<div class="span-admin banner" style="background-image: url('/static/images/cover_adm_1.jpg');background-position: center;width: 100%">
-				<div style="background-color: rgba(0, 0, 0, 0.40);width: 100%;margin: 0px !important;padding: 60px 0;">
-					<div class="span-admin boxer" style="" data-widget-type="cell" data-x="0" data-w="12">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="span-admin widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
-									<div class="span-admin">
-									  <!-- <img class="logo-modalidades" src="{% static 'images/logo.png' %}" alt="" width="190" style="width: 190px;"> -->
-										<div class="span-admin" style="margin-left: 50px;margin-top: 129px;">
-									    <div class="tit-carrera">
-									      <h1><span> Actuación Teatral </span></h1>
-									    </div>
-								  	</div>
-										<div style="margin-left:50px;margin-top: 20px">
-											<button id="btn-admision" onclick="descargar_malla()" class="btn-malla">DESCARGAR MALLA</button>
-										</div>
-									</div>
-								</div>
+<!-- Numbers Section -->
+<section id="numbers" class="parallax">
+  <div class="parallax-overlay">
+    <div class="container">
+      <h4 class="center up">Colaboradores</h4>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <span class="counter animated hiding" data-animation="fadeInDown" data-delay="0">
+          <i class="fa fa-group fa-4x"></i>
+          <span class="value" data-from="0" data-to="150">150</span>
+          <small>Teatro del Antagonista</small>
+        </span>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <span class="counter animated hiding" data-animation="fadeInDown" data-delay="500">
+          <i class="fa fa-trophy fa-4x"></i>
+          <span class="value" data-from="0" data-to="450">450</span>
+          <small>ADTRES</small>
+        </span>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <span class="counter animated hiding" data-animation="fadeInDown" data-delay="1000">
+          <i class="fa fa-coffee fa-4x"></i>
+          <span class="value" data-from="0" data-to="380">380</span>
+          <small>La Balanza Teatro</small>
+        </span>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <span class="counter animated hiding" data-animation="fadeInDown" data-delay="1500">
+          <i class="fa fa-code fa-4x"></i>
+          <span class="value" data-from="0" data-to="888150">888150</span>
+          <small>Red Nacional de Danza</small>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Numbers Section -->
+
+<!-- Services Section -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="title col-md-8 col-sm-10 col-xs-12">
+      <h1>Programas de <strong>Formación</strong></h1>
+      <hr>
+      <p>Teatro Escuela tiene los siguientes Programas de Formación:</p>
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-12 service-box">
+      <div class="service animated hiding" data-animation="fadeInUp" data-delay="0">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+          <i class="fa fa-leaf fa-stack-1x service-icon"></i>
+        </span>
+        <h3>Carrera Actuación Teatral</h3>
+        <p>24 ciclos en modalidad diurna y vespertina, que conducen a la formación de Intérpretes o Creadores Escénicos.<br><br><br><br></p>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-12 service-box">
+      <div class="service animated hiding" data-animation="fadeInUp" data-delay="500">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+          <i class="fa fa-briefcase fa-stack-1x service-icon"></i>
+        </span>
+        <h3>Bolsas Prácticas</h3>
+        <p>Clase de profundización dirigida a todo quienes quieran ampliar o perfeccionar su campo de conocimiento.<br><br><br><br><br></p>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 service-box">
+      <div class="service animated hiding" data-animation="fadeInUp" data-delay="1000">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+          <i class="fa fa-flask fa-stack-1x service-icon"></i>
+        </span>
+        <h3>Labs Escénicos</h3>
+        <p>Programa que se compone de varias jornadas, en donde se profundiza e investiga acerca de un contenido propuesto por el centro de
+        investigación Teatro Escuela. Dirigido a profesionales y estudiantes con conocimiento previo. Es de carácter práctico y teórico.<br><br><br><br><br></p>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 service-box">
+      <div class="service animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <span class="fa-stack fa-4x">
+          <a href="{% url 'escuela:aplicado' %}" >
+            <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+            <i class="fa fa-gittip fa-stack-1x service-icon"></i>
+          </a>
+        </span>
+        <h3>Teatro Aplicado en Salud</h3>
+        <p>Programa de Especialización con duración de 6 sesiones teóricas y 4 tutorías prácticas, que tienen como propósito
+          entregar herramientas a actores y/o docentes para estimular y reforzar el proceso terapéutico. Dictado por <strong>La Balanza Teatro - Verónica García Huidrobro y Luna del Canto.</strong>
+       </p>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-sm-6 col-xs-12 service-box">
+      <div class="service animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-2x fa-stack-2x"></i>
+          <i class="fa fa-users fa-stack-1x service-icon"></i>
+        </span>
+        <h3>OPEN Teatro Escuela</h3>
+        <p>Parte de nuestro programa de extensión. Clases gratuitas y ciclo de diálogos que te permitirán conocer nuestro trabajo e investigación.<br><br><br>
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+<!-- End Services Section -->
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="section">
+  <div class="container">
+    <div class="title col-md-8 col-sm-10 col-xs-12">
+      <h1>Portafolio</h1>
+      <hr>
+      <p>Encuéntranos en nuestras redes</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <iframe width="320" height="490" src="https://www.instagram.com/p/CCFX6BdJ_7I/embed" frameborder="0"></iframe>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <iframe width="320" height="490" src="https://www.instagram.com/p/CCFeMllJGSU/embed" frameborder="0"></iframe>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <iframe width="320" height="490" src="https://www.instagram.com/p/CCFgozIJgNC/embed" frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="row" style="padding-top:20px">
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <iframe width="320" height="490" src="https://www.instagram.com/p/CAvzmDUpzJM/embed" frameborder="0"></iframe>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <iframe width="320" height="490" src="https://www.instagram.com/p/CBRmyhsJQLM/embed" frameborder="0"></iframe>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <iframe width="320" height="490" src="https://www.instagram.com/p/B_ifNR2JCYD/embed" frameborder="0"></iframe>
+      </div>
+    </div>
+    <div class="row" style="padding-top:20px">
+    </div>
+  </div>
+
+  <!-- <div class="portfolio-top"></div> -->
+  <!-- Portfolio Grid -->
+  <!-- <ul id="portfolio-grid">
+    <li class="mix photography branding mix_all">
+      <img src="images/portfolio/1.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Silk Light</span>
+          <span>Photography / Branding</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix photography video mix_all">
+      <img src="images/portfolio/2.jpg" alt="">
+      <a href="project-2.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Emma</span>
+          <span>Photography / Video</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix graphic mix_all">
+      <img src="images/portfolio/3.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Potrait</span>
+          <span>Graphic</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix photography mix_all">
+      <img src="images/portfolio/4.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Shana</span>
+          <span>Photography</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix photography mix_all">
+      <img src="images/portfolio/5.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">The Model</span>
+          <span>Photography</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix graphic mix_all">
+      <img src="images/portfolio/6.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Aleilde</span>
+          <span>Graphic</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix branding mix_all">
+      <img src="images/portfolio/7.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Xo Bella</span>
+          <span>Branding</span>
+        </div>
+      </a>
+    </li>
+    <li class="mix graphic mix_all">
+      <img src="images/portfolio/8.jpg" alt="">
+      <a href="project-1.html" class="open-project">
+        <div class="project-overlay">
+          <i class="fa fa-plus-circle fa-3x"></i>
+          <span class="project-name">Happy Pill</span>
+          <span>Graphic</span>
+        </div>
+      </a>
+    </li>
+  </ul> -->
+  <!-- End Portfolio Grid -->
+  <!-- Ajax Loaded Portfolio -->
+  <!-- <div id="project-extended">
+    <div class="container">
+      <ul id="project-controls">
+        <li>
+          <a href="#" id="close-project">
+            <i class="fa fa-times fa-2x"></i>
+          </a>
+        </li>
+      </ul>
+      <div id="project-content"></div>
+    </div>
+  </div>
+  <!-- End Ajax Loaded Portfolio -->
+  <!-- <div class="portfolio-bottom"></div> -->
+</section>
+<!-- End Portfolio Section -->
+
+<!-- Pricing Section -->
+<!-- <section id="pricing" class="section">
+  <div class="container">
+    <div class="title col-md-8 col-sm-10 col-xs-12">
+      <h1>Pricing <strong>tables</strong></h1>
+      <hr>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <!-- Pricing Table -->
+      <!-- <div class="plan animated hiding" data-animation="fadeInUp" data-delay="0">
+        <div class="plan-heading">
+          <h3>Free</h3>
+          <p>Lorem Ipsum</p>
+          <div class="circle-price">
+            <span>$0/m</span>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Free</strong> setup</li>
+          <li><strong>2</strong> websites</li>
+          <li><strong>500MB</strong> storage</li>
+          <li><strong>1GB</strong> bandwidth</li>
+          <li><strong>3 months</strong> support</li>
+          <li><strong>Unlimited</strong> subdomains</li>
+        </ul>
+        <div class="buy-now">
+          <a class="btn btn-custom">Buy now</a>
+        </div>
+      </div>
+      <!-- End Pricing Table -->
+    <!-- </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <!-- Pricing Table -->
+      <!-- <div class="plan animated hiding" data-animation="fadeInUp" data-delay="500">
+        <div class="plan-heading">
+          <h3>Starter</h3>
+          <p>Lorem Ipsum</p>
+          <div class="circle-price">
+            <span>$29/m</span>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Free</strong> setup</li>
+          <li><strong>5</strong> websites</li>
+          <li><strong>2GB</strong> storage</li>
+          <li><strong>5GB</strong> bandwidth</li>
+          <li><strong>6 months</strong> support</li>
+          <li><strong>Unlimited</strong> subdomains</li>
+        </ul>
+        <div class="buy-now">
+          <a class="btn btn-custom">Buy now</a>
+        </div>
+      </div> -->
+      <!-- End Pricing Table -->
+    <!-- </div>
+    <div class="col-md-3 col-sm-6 col-xs-12"> -->
+      <!-- Pricing Table -->
+      <!-- <div class="plan animated hiding selected" data-animation="fadeInUp" data-delay="1000">
+        <div class="plan-heading">
+          <h3>Professional</h3>
+          <p>Lorem Ipsum</p>
+          <div class="circle-price">
+            <span>$59/m</span>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Free</strong> setup</li>
+          <li><strong>10</strong> websites</li>
+          <li><strong>5GB</strong> storage</li>
+          <li><strong>10GB</strong> bandwidth</li>
+          <li><strong>9 months</strong> support</li>
+          <li><strong>Unlimited</strong> subdomains</li>
+        </ul>
+        <div class="buy-now">
+          <a class="btn btn-custom">Buy now</a>
+        </div>
+      </div> -->
+      <!-- End Pricing Table -->
+    <!-- </div>
+    <div class="col-md-3 col-sm-6 col-xs-12"> -->
+      <!-- Pricing Table -->
+      <!-- <div class="plan animated hiding" data-animation="fadeInUp" data-delay="1500">
+        <div class="plan-heading">
+          <h3>Premium</h3>
+          <p>Lorem Ipsum</p>
+          <div class="circle-price">
+            <span>$99/m</span>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Free</strong> setup</li>
+          <li><strong>Unlimited</strong> websites</li>
+          <li><strong>Unlimited</strong> storage</li>
+          <li><strong>Unlimited</strong> bandwidth</li>
+          <li><strong>12 months</strong> support</li>
+          <li><strong>Unlimited</strong> subdomains</li>
+        </ul>
+        <div class="buy-now">
+          <a class="btn btn-custom">Buy now</a>
+        </div>
+      </div> -->
+      <!-- End Pricing Table -->
+    <!-- </div>
+  </div>
+</section> -->
+<!-- End Pricing Section -->
+
+<!-- Clients Section -->
+<section id="clients" class="section">
+  <!-- Testimonials -->
+  <!-- <div id="testimonials" class="parallax">
+    <div class="parallax-overlay">
+      <div class="container">
+        <h1>What our clients say</h1>
+        <hr>
+        <div class="testimonials-slider animated hiding" data-animation="fadeInUp">
+          <ul class="slides">
+            <li>
+              <img src="images/testimonials/1.jpg" alt="">
+              <p class="client-comment">"This template is very nice! Great work"</p>
+              <p class="client-name">Jasmine - Virtual Inc.</p>
+            </li>
+            <li>
+              <img src="images/testimonials/2.jpg" alt="">
+              <p class="client-comment">"I love this template! Congratulations!"</p>
+              <p class="client-name">Erick - Social Group</p>
+            </li>
+            <li>
+              <img src="images/testimonials/3.jpg" alt="">
+              <p class="client-comment">"This template is perfect. Thanks!"</p>
+              <p class="client-name">Lisa - Mosbius Design</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- End Testimonials -->
+  <div class="container">
+    <!-- Clients Carousel -->
+    <!-- <div id="clients-carousel" class="owl-carousel">
+      <div class="item"><img src="images/clients/logo1.png" alt=""></div>
+      <div class="item"><img src="images/clients/logo2.png" alt=""></div>
+      <div class="item"><img src="images/clients/logo3.png" alt=""></div>
+      <div class="item"><img src="images/clients/logo4.png" alt=""></div>
+      <div class="item"><img src="images/clients/logo5.png" alt=""></div>
+      <div class="item"><img src="images/clients/logo6.png" alt=""></div>
+    </div> -->
+    <!-- End Clients Carousel -->
+  </div>
+</section>
+<!-- End Clients Section -->
+
+<!-- Begin Contact Section-->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="title col-md-8 col-sm-10 col-xs-12">
+      <h1>Contácta<strong>nos</strong></h1>
+      <hr>
+      <p>Escríbenos para obtener más información acerca de nuestros programas de formación</p>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <!-- <div id="map"></div> -->
+  <!-- End Map -->
+
+  <!-- Contact Details -->
+  <div class="contact-details">
+    <div class="container">
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="detail">
+          <i class="fa fa-map-marker"></i>
+          <span>Agustinas 1817, Santiago</span>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="detail">
+          <i class="fa fa-phone"></i>
+          <span>+56 9 63940222</span>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="detail last">
+          <i class="fa fa-envelope"></i>
+          <span>admision@teatroescuela.cl</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Contact Details -->
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <!-- Contact Form -->
+      <div id="contact-form">
+        <div class="form-sent">
+          <div class="alert alert-success">
+            <strong>Tú mensaje ha sido enviado!</strong> Gracias por contactanos.
+          </div>
+        </div>
+        <form id="f-admision" action="{% url 'escuela:registrar' %}" role="form" method="post">
+          {% csrf_token %}
+						<div class="col-md-12">
+							<div class="form-group">
+								<input id="admin-nombre" name="a-nombre" type="text" class="form-control" placeholder="Nombre">
 							</div>
 						</div>
-					</div>
-	  		</div>
-			</div>
-		</div>
-
-		<!-- Nuestra Escuela -->
-		<section id="d-ESCUELA" class="contact-section section-padding mb-30 mt-30">
-		  <div class="container">
-		    <div class="row text-center animate-box">
-					<div class="col-md-7 animate-box">
-						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;text-align:left;">NUESTRA ESCUELA</h5>
-						<p style="margin-bottom: 24px;font-family: Courier,monospace; text-align: justify;font-size: 16px">
-							El Teatro Escuela, es una institución de Estudios Superiores, enfocada en la formación de Actrices y Actores de nivel profesional.<br>
-							La escuela, define su preocupación por una formación teatral íntegra, mediante un proceso en el cual el alumno concreta la integración
-							de sus facultades crearivas, como un ser capaz de establecer relaciones con el entorno en el que le corresponde desempeñarse, vinculándose en
-							el medio teatral desde el primer año de ingreso.<br>
-							En la metodología del Teatro Escuela, el estudiante es el factor activo de su propia creación, especialmente en las asignaturas troncales:
-							Actuación, Movimiento y Voz, con un sello marcado en lo práctico.<br>
-							La Malla Curricular de la Escuela, establece un plan común de tres años y un línea de formación específica en el primer semestre del cuarto
-							año, en la cual el estudiante podrá optar por la mención de Interpretación o de Realización Escénica. Ambas menciones, se interelacionan en
-							la preparación de su egreso respectivo, al final de la carrera.La malla, establece un sistema de créditos que aseguran que el estudiante se
-							forme de acuerdo a las exigencias del medio teatral profesional.
-						</p>
-					</div>
-					<div class="col-md-offset-1 col-md-3 animate-box formulario">
-						<div class="row">
-							<h3 id="t-admision" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text">MÁS INFORMACIÓN AQUÍ</h3>
-							<form id="f-admision" action="" role="form" method="post">
-								<div class="col-md-12">
-									<div class="form-group">
-										<input id="admin-nombre" name="a-nombre" type="text" class="form-control" placeholder="Nombre">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input id="admin-apellod" name="a-apellido" type="text" class="form-control" placeholder="Apellido">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input id="admin-email" name="a-email"  type="mail" class="form-control" placeholder="Email">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input id="admin-telefono" name="a-telefono"  type="telefono" class="form-control" placeholder="+56 9 66735123">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input id="admin-run" name="a-run"  type="run" class="form-control formato-rut" placeholder="xx.xxx.xxx-x">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<select name="a-modalidad" class="form-control">
-												<option>Diurno</option>
-												<option>Vespertino</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<textarea type="text" rows="4" cols="30" id="admin-mensaje" name="a-mensaje" class="form-control" placeholder="Mensaje"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group pull-right">
-										<input type="submit" value="Enviar Mensaje" class="btn btn-primary">
-									</div>
-								</div>
-							</form>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input id="admin-email" name="a-email"  type="mail" class="form-control" placeholder="Email">
+							</div>
 						</div>
-					</div>
-		  	</div>
-		  </div>
-		</section>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="tel" name="a-phone" class="form-control phone" placeholder="(9) 98765432" id="id_telefono">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea type="text" rows="4" cols="30" id="admin-mensaje" name="a-mensaje" class="form-control" placeholder="Mensaje"></textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group pull-right">
+								<!-- <input type="submit" value="Enviar Mensaje" class="btn btn-primary"> -->
+                <input type="submit" class="btn btn-custom up animated fadeInUpBig visible" value="Enviar Mensaje" data-animation="fadeInUpBig">
+							</div>
+						</div>
+				</form>
+      </div>
+      <!-- End Contact Form -->
+    </div>
+  </div>
+</section>
+<!-- End Contact Section-->
 
-		<!-- Razones y Beneficios -->
-		<section id="r-escuela" class="contact-section section-padding mb-30">
-		  <div class="container">
-		    <div class="row justify-content-md-center row animate-box">
-					<div class="col-md-4 animate-box">
-						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;line-height: 1.16667em; margin-bottom: .66667em;">CAMPO OCUPACIONAL</h5>
-						<ul class="listaprodserv">
-							<li class="listaprodserv">Actuación para teatro.</li>
-							<li class="listaprodserv">Realización Escénica.</li>
-							<li class="listaprodserv">Especialidades teatrales: dirección, producción, diseño escénico, dramaturgia, danza.</li>
-							<li class="listaprodserv">Gestión y producción cultural.</li>
-							<li class="listaprodserv">Docencia e investigación.</li>
-						</ul>
-					</div>
-					<div class="col-md-4 animate-box">
-						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;line-height: 1.16667em; margin-bottom: .66667em;">¿POR QUÉ TEATRO ESCUELA?</h5>
-						<ul class="listaprodserv">
-							<li class="listaprodserv">Carrera con un marcado sello en la puesta en escena.</li>
-							<li class="listaprodserv">Modelo de Enseñanza que amplía las posibilidades laborales.</li>
-							<li class="listaprodserv">Cuerpo docente idóneo y con actividad vigente en el medio.</li>
-							<li class="listaprodserv">Sede privilegiada en barrio Brasil.</li>
-							<li class="listaprodserv">Biblioteca y Videoteca especializada.</li>
-							<li class="listaprodserv">Convenio con Fonoadiólogos.</li>
-						</ul>
-					</div>
-					<div class="col-md-4 animate-box">
-						<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;line-height: 1.16667em; margin-bottom: .66667em;">REQUISITOS</h5>
-						<ul class="listaprodserv">
-							<li class="listaprodserv">Postulantes chilenos y extranjeros deben presentar su licencia de enseñanza media chilena original o legalizada ante notario.</li>
-							<li class="listaprodserv">Presentar fotocopia clara y legible de ambas caras de la cédula de identidad.</li>
-							<li class="listaprodserv">Cumplir con los demás requisitos que para el ingreso establezca el Teatro Escuela</li>
-						</ul>
-					</div>
-		  	</div>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <!-- Social Links -->
+    <ul class="social-list">
+      <li>
+        <a href="https://www.instagram.com/teatro.escuela/" target="_blank">
+          <span class="social-icon">
+            <i class="fa fa-instagram"></i>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="https://youtube.com/nSUYNoRcZQ1kv8KwaPqK6g" target="_blank">
+          <span class="social-icon">
+            <i class="fa fa-youtube"></i>
+          </span>
+        </a>
+      </li>
+      <!-- <li>
+        <a href="https://plus.google.com/" target="_blank">
+          <span class="social-icon">
+            <i class="fa fa-google-plus"></i>
+          </span>
+        </a>
+      </li> -->
+    </ul>
+    <!-- End Social Links -->
 
-		  </div>
-		</section>
-
-		<!-- Contacto -->
-		<section id="c-escuela" class="contact-section section-padding mb-30">
-		  <div class="container">
-		    <div class="row text-center  animate-box">
-					<h5 class="section-title" style="text-transform: uppercase;font-size: 1em;text-align:center;">CONTACTO</h5>
-		      <div class="col-sm-6 col-md-4 mb-4 animated" data-animate="ts-fadeInUp" style="visibility: visible;">
-		          <i class="icon-map5"></i>
-		          <div>
-		              <figure class="mb-0">Agustinas 1817 Barrio Brasil</figure>
-		              <figure>Santiago</figure>
-		          </div>
-
-		      </div>
-		      <div class="col-sm-6 col-md-2 mb-4 ts-fadeInUp animated" data-animate="ts-fadeInUp" data-delay=".1s" style="animation-delay: 0.1s; visibility: visible;">
-		          <i class="icon-phone4"></i>
-		          <div class="ts-opacity__50">
-		              <figure class="mb-0">+56974324328</figure>
-		          </div>
-		      </div>
-		      <div class="col-sm-6 col-md-3 mb-4 ts-fadeInUp animated" data-animate="ts-fadeInUp" data-delay=".2s" style="animation-delay: 0.2s; visibility: visible;">
-		          <i class="icon-envelope2"></i>
-		          <div class="ts-opacity__50">
-		              <figure class="mb-0">admision@teatroescuela.cl</figure>
-		          </div>
-		      </div>
-		      <div class="col-sm-6 col-md-3 mb-4 ts-fadeInUp animated" data-animate="ts-fadeInUp" data-delay=".3s" style="animation-delay: 0.3s; visibility: visible;">
-		          <i class="icon-globe3"></i>
-		          <div class="ts-opacity__50">
-		              <figure><a href="/">www.teatrodelantagonista.cl</a></figure>
-		          </div>
-		      </div>
-		  	</div>
-		  </div>
-		</section>
-	</div>
-</div>
+    <!-- Copyright -->
+    <p class="center grey">2020 &copy; Funtes. All rights reserved.</p>
+    <!-- End Copyright -->
+  </div>
+</footer>
 
 
-<style>
-
-	/* #colorlib-contact {
-	    padding: 55px 0 !important;
-	} */
-
-  .mb-30 {
-		margin-bottom: 50px;
-	}
-
-	.mt-30 {
-		margin-top: 50px;
-	}
-
-	figure {
-    margin: 0;
-    font-size: 14px;
-	}
-
-	.section-title-contacto {
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 50px;
-    line-height: 50px;
-    color: #2c3e50;
-    position: relative;
-	}
-
-	.listaprodserv ul{margin:0; padding:0}
-
-	.listaprodserv li{
-
-		list-style: disc;
-		font-family:Courier,monospace;
-		font-size:14px;
-		color:#504f4f;
-		list-style-position:inside;
-		line-height:20px;
-		margin-left:10px;}
-
-	.listaprodserv li a{
-		color:#504f4f;
-		list-style-position:inside;
-		line-height:20px;
-		text-decoration:none;}
-
-	.listaprodserv li a:hover{
-		color:#797979;
-		text-decoration:underline;}
-
-		.formulario {
-	    box-shadow: 0px 0px 15px #8888886b;
-		}
-
-	.form-title {
-    text-align: center;
-    font-size: 28px;
-    background: #ff036b;
-    color: #fff;
-    padding: 15px 0;
-	}
-
-	.form-title-modal {
-		text-align: center;
-		font-size: 28px;
-		background: #ff036b;
-	}
-
-	.form-title-modal span{
-		text-align: center;
-		font-size: 26px;
-		color: #ffffff;
-	}
-
-	.col-form-label{
-		font-size: 16px;
-		font-weight: 100 !important;
-	}
-
-  .container {
-      position: relative;
-      width: 100%;
-      clear: both;
-      margin-right: 0;
-      margin-left: 0;
-  }
-
-
-	.btn-malla {
-  	color: #fff;
-  	border-radius: 25px;
-  	border: 0px;
-  	text-transform: uppercase;
-  	font-size: 12px;
-    background: #ff036b;
-  	float: left;
-    padding: 7px 25px;
-    margin-right: 10px;
-    margin-bottom: 15PX;
-    cursor: pointer;
-	}
-
-	.modalidades .boxer {
-  	width: 100%;
-	}
-
-	.a-admin h1 {
-    line-height: 42px !important;
-    margin: 0 !important;
-    margin-bottom: 50px !important;
-	}
-
-	.tit-carrera h1 span {
-    background-color: #ff036b;
-    padding: 0px 0px 5px;
-    text-transform: uppercase;
-		font-size: 42px !important;
-		color: #fff !important;
-		font-weight: 600 !important;
-	}
-
-	.banner {
-	  padding: 0px 0;
-	  background-size: cover !important;
-	  background-position: center;
-	}
-
-	.item-agenda a span {
-      border-bottom: 1px solid #242d27;
-      font-size: 15px;
-  }
-
-  .item-agenda .title {
-      display: inline !important;
-      font-size: 15px;
-      line-height: 1.25em;
-      text-transform: uppercase;
-  }
-  agenda p {
-      display: inline;
-  }
-
-  .big-title, .cta, .dancer-nav span, .filters a, .filters button, .filters u, .hero text, .section-title, .super-title, .text h4, .text h5, .title {
-      font-weight: 400;
-      font-family: Impact;
-  }
-
-  .text h44{
-    font-weight: 400;
-    font-family: Impact;
-    margin: 0px 0px 5px 0px
-  }
-
-  .item-agenda p {
-      display: inline;
-      font-size: 15px;
-      line-height: 1.42857em;
-  }
-
-  .item-agenda .datetime, .item-agenda p {
-       display: inline;
-  }
-
-  .item-agenda .datetime {
-      display: inline;
-      font-weight: 700;
-      font-size:13px;
-      line-height: 1.25em;
-  }
-
-  .text p {
-      font-size: 14px;
-      line-height: 17px;
-      padding-bottom: 23px;
-  }
-
-
-  @media (min-width: 48em)
-  .containerobra {
-      padding: 0 2.66667em;
-  }
-
-  .containerobra {
-      position: relative;
-      width: 100%;
-      max-width: 1885px;
-      padding: 0 1.33333em;
-      clear: both;
-  }
-  .list li {
-      margin-bottom: 1.33333em;
-      text-transform: uppercase;
-  }
-  .big-title, .cta, .dancer-nav span, .filters a, .filters button, .filters u, .hero text, .section-title, .super-title, .text h4, .text h5, .title {
-      font-weight: 400;
-      font-family: Impact;
-
-  }
-  .big-title span {
-      padding-right: .16667em;
-      font-size: 1.9em;
-      line-height: 1.14286em;
-      font-family: Impact;
-      color :  #242d27
-
-  }
-
-  .big-title sup {
-      font-family: Courier,monospace;
-      <!--font-size: 1.16667em;-->
-      line-height: 1.14286em;
-      vertical-align: top;
-      top: auto;
-  }
-  p, ul {
-      margin: 0;
-  }
-
-  ul {
-      list-style: none;
-      padding: 0;
-  }
-  h3{
-      font-weight: 100;
-      font-size: 1em;
-  }
-  .list a {
-      opacity: 1;
-      transition: opacity .2s linear;
-  }
-  a, a:active, a:hover, a:visited {
-      color: inherit;
-  }
-  a {
-      text-decoration: none;
-  }
-  a:hover, a.span:hover   {color: gray;    text-decoration: none;
-  }
-
-</style>
-
-{% endblock %}
+<!-- End Footer -->
+{% endblock content %}
 
 {% block script %}
-
 <script>
-	$(document).ready(function() {
-		validar_adminision();
-		valida_malla();
+$(document).ready(function() {
+    validar_adminision();
+});
 
-		$(".formato-rut").rut({
-				formatOn: 'keyup'
-		})
-
-	});
-
-	function descargar_malla(){
-		$('#m-admision').modal('show')
-	}
-
-	function enviar_malla(){
-		$('#f-malla').submit();
-	}
-
-	function validar_adminision() {
-    $("#f-admision").validate({
+function validar_adminision() {
+  $("#f-admision").validate({
         'rules': {
           'a-nombre': {
               'required': true,
           },
-          'a-apellido': {
+          'a-phone': {
               'required': true,
           },
           'a-email': {
               'required': true,
               'email': true,
           },
-					'a-run': {
+					'a-mensaje': {
 							'required': true,
-							'rut': true,
 					},
-					'a-telefono':{
-							'required': true,
-
-					},
-					'a-mensaje':{
-							'required': true,
-
-					}
         },
         errorPlacement: function(error, element) {
-            console.log('errorPlacement')
             element.closest(".form-group").find('.container-error').html('')
             error.appendTo(element.closest(".form-group").find('.container-error'));
         },
         submitHandler: function(form) {
-
             $("#f-admision").ajaxSubmit({
                 dataType: 'json',
                 beforeSend: function() {
-									$('#m-admision').modal('hide')
                   loading({
                       active: true,
                       description: 'Enviado información.'
@@ -539,60 +1022,10 @@
                 },
                 error: function(data, a, t) {
                     loading({active: false})
-                    // notification_toastr({
-                    //     title: 'Empresa',
-                    //     message: 'Ocurrio un error, contactarse con el administrador',
-                    //     type: 'error'
-                    // })
                 }
             });
         }
     });
-	}
-
-	function valida_malla(){
-		$("#f-malla").validate({
-        'rules': {
-          'm-email': {
-              'required': true,
-              'email': true,
-          },
-        },
-        errorPlacement: function(error, element) {
-            console.log('errorPlacement')
-            element.closest(".form-group").find('.container-error').html('')
-            error.appendTo(element.closest(".form-group").find('.container-error'));
-        },
-        submitHandler: function(form) {
-
-            $("#f-malla").ajaxSubmit({
-                dataType: 'json',
-                beforeSend: function() {
-										$('#m-admision').modal('hide')
-                    loading({
-                        active: true,
-                        description: 'Enviando información.'
-                    })
-                },
-                success: function(response) {
-                  loading({active: false})
-
-                },
-                error: function(data, a, t) {
-                    loading({active: false})
-                    // notification_toastr({
-                    //     title: 'Empresa',
-                    //     message: 'Ocurrio un error, contactarse con el administrador',
-                    //     type: 'error'
-                    // })
-                }
-            });
-        }
-    });
-	}
-
+}
 </script>
-
-
-
 {% endblock %}
