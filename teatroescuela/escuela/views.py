@@ -55,4 +55,4 @@ class ResgitroView(View):
 
 def aplicado(request):
     context = {}
-    return render(request, 'teatroaplicado.html', context)
+    return render(request, 'aplicado.html', context)
