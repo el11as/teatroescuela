@@ -56,3 +56,7 @@ class ResgitroView(View):
 def aplicado(request):
     context = {}
     return render(request, 'aplicado.html', context)
+
+def escuela(request):
+    context = {}
+    return render(request, 'escuela.html', context)
