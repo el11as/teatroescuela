@@ -909,33 +909,24 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
         </div>
         <form id="f-admision" action="{% url 'escuela:registrar' %}" role="form" method="post">
           {% csrf_token %}
-						<div class="col-md-12">
-							<div class="form-group">
-								<input id="admin-nombre" name="a-nombre" type="text" class="form-control" placeholder="Nombre">
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<input id="admin-email" name="a-email"  type="mail" class="form-control" placeholder="Email">
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<input type="tel" name="a-phone" class="form-control phone" placeholder="(9) 98765432" id="id_telefono">
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<textarea type="text" rows="4" cols="30" id="admin-mensaje" name="a-mensaje" class="form-control" placeholder="Mensaje"></textarea>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group pull-right">
-								<!-- <input type="submit" value="Enviar Mensaje" class="btn btn-primary"> -->
-                <input type="submit" class="btn btn-custom up animated fadeInUpBig visible" value="Enviar Mensaje" data-animation="fadeInUpBig">
-							</div>
-						</div>
-				</form>
+          <div class="col-md-5 col-sm-5 col-xs-12 animated hiding" data-animation="slideInLeft">
+            <div class="form-group">
+              <input id="admin-nombre" name="a-nombre" type="text" class="form-control input-lg" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input id="admin-email" name="a-email"  type="email" class="form-control input-lg" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input id="id_telefono" name="a-phone" type="text"class="form-control input-lg" placeholder="(9) 98765432">
+            </div>
+          </div>
+          <div class="col-md-7 col-sm-7 col-xs-12 animated hiding" data-animation="slideInRight">
+            <div class="form-group">
+              <textarea type="text" id="admin-mensaje" rows="4" cols="30"  name="a-mensaje" class="form-control" placeholder="Mensaje"></textarea>
+            </div>
+          </div>
+          <input type="submit" class="btn btn-custom up animated hiding" value="Enviar Mensaje" data-animation="fadeInUpBig">
+        </form>
       </div>
       <!-- End Contact Form -->
     </div>
