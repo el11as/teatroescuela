@@ -985,6 +985,11 @@ Sonoro de la Compañía de Teatro del Antagonista, de la cual es co-fundador.</p
 {% block script %}
 <script>
 $(document).ready(function() {
+    var images = [
+      "static/assets/images/bg/1.jpg",
+      "static/assets/images/bg/2.jpg",
+    ]
+    loadinitialimage(images);
     validar_adminision();
 });
 

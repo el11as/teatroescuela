@@ -32,3 +32,10 @@ $.validator.addMethod("rut", function(value, element) {
     }
     return status;
 }, 'R.U.T. inválido.');
+
+
+function loadinitialimage(images){
+    console.log(images)
+    $.backstretch(images, {duration: 4500, fade: 'slow'});
+
+}

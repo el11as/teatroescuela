@@ -9,8 +9,10 @@
 <!-- End Preloader -->
 
 <!-- Home Section -->
-<div id="home">
-</div>
+<!-- <div id="home" class="img-responsive" style="background-image:url({% static '/assets/images/bg/1.jpg' %})">
+</div> -->
+
+<div id="home"></div>
 
 <!-- End Home Section -->
 
@@ -812,6 +814,10 @@ Egresa  de la Escuela de Teatro UC el año 1987 con la obra el Rey se Muere diri
 <script>
 $(document).ready(function() {
     validar_adminision();
+    var images = [
+      "/static/assets/images/team/balanza_1.png",
+    ]
+    $('#home').backstretch(images, {duration: 4500, fade: 'slow'});
 });
 
 function validar_adminision() {

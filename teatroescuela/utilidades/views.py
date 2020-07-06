@@ -31,6 +31,7 @@ def enviar_mail(**kwargs):
             email_message = get_template(email_message).render(data)
 
         email = EmailMessage(subject, email_message, settings.EMAIL_HOST_USER, to_email, cc=cc_email)
+        print(email)
 
         if attach:
             email.attach_file(attach)
